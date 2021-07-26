@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class ColorRandomizer extends Component {
-    
+const ColorRandomizer = ({ colors, onColorChange }) => {
+  return (
+    <>
+      {colors[Math.floor(Math.random() * colors.length)]}
+      
+    </>
+  );
+};
 
-    render() {
-        const colors = ['red', 'yellow', 'blue'];
-        const randColor = colors[Math.floor(Math.random() * colors.length)];
-        return (
-        
-        );
-    }
-}
+ColorRandomizer.propTypes = {
+  colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onColorChange: PropTypes.func.isRequired,
+};
+
+export default ColorRandomizer;
